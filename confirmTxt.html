@@ -1,0 +1,54 @@
+<head>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>   
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+</head>
+
+<h3>See your passwords</h3>
+
+<form class="p-4">
+<div class="form-group">
+
+
+
+<div class="form-group">
+    <input type="password" id='password' class="form-control" placeholder="Valida tu clave">
+    </div>
+
+    
+
+<button class="btn btn-primary btn-block" onclick="validate()"> Confirm </button>
+</form>
+
+<div id="lockedfile">
+</div>
+
+<script>
+
+
+const form = document.querySelector('form')
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const filePasw =  document.querySelector('#password').value;
+    console.log(filePasw)
+    let UserPasw = 'Password';
+   
+    window.filePasw = filePasw;
+
+});
+
+let UserPasw = 'Password';
+
+
+
+
+async function validate() { 
+    if (window.filePasw == UserPasw) {
+    
+    await $('#lockedfile').load('./passwords.html')
+
+}} 
+
+
+</script>
+
